@@ -1,0 +1,21 @@
+import os
+import csv
+
+csvpath= os.path.join("..","Desktop","election_data.csv")
+
+
+with open(csvpath, 'r') as csvfile:
+    csvreader = csv.reader (csvfile,delimiter =",")
+    header = next(csvreader)
+  
+    voters=0
+    list_candidates=[]
+    candidates=0
+   
+    for row in csvreader:
+        voters= voters +1
+        candidates=row[2]
+        
+print("Election Results")
+print("------------------")
+print ("Total Votes:", voters)
